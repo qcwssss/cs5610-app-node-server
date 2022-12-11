@@ -3,7 +3,6 @@ import cors from "cors";
 import PostsController from "./controllers/post/post-controller.js";
 import UsersController from "./controllers/user/users-controller.js";
 import ReviewsController from "./controllers/reviews/reviews-controller.js";
-// import ReviewsController from "./controllers/reviews/reviews-controller.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import session from "express-session";
@@ -34,10 +33,10 @@ app.use(
     ],
   })
 );
-
+app.set("trust proxy", 1);
 app.use(
   session({
-    secret: "this is the secret salt",
+    secret: process.env.SESSION_KEY,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false },
