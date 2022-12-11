@@ -27,7 +27,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: "https://travello-app-0573e0.netlify.app/",
+    origin: "https://travello-app-0573e0.netlify.app",
   })
 );
 app.set("trust proxy", 1);
